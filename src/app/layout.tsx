@@ -1,5 +1,10 @@
 import { Metadata } from 'next';
 import Script from 'next/script';
+import '../../public/vendor/slick/slick.min.css';
+import '../../public/vendor/slick/slick-theme.min.css';
+import '../../public/vendor/fontawesome-free/css/all.min.css';
+import '../../public/vendor/bootstrap/css/bootstrap.min.css';
+import '../../public/css/osahan.css';
 
 export default function RootLayout({
   children,
@@ -16,23 +21,6 @@ export default function RootLayout({
         />
         <link rel="icon" type="image/png" href="img/favicon.png" />
         <title>Movbok - Movies, Events, Sports Website HTML Template</title>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="vendor/slick/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="vendor/slick/slick-theme.min.css"
-        />
-        <link
-          href="vendor/fontawesome-free/css/all.min.css"
-          rel="stylesheet"
-          type="text/css"
-        />
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="css/osahan.css" rel="stylesheet" />
       </head>
       {children}
       <Script src="vendor/jquery/jquery.min.js" />
