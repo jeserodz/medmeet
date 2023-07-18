@@ -1,0 +1,104 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String        @id @default(uuid())
+  email       String        @unique
+  firstName   String
+  lastName    String
+  bio         String?
+  isDoctor    Boolean       @default(false)
+  isBusiness  Boolean       @default(false)
+  events      Event[]
+  image       UserImage?
+  Inscription Inscription[]
+}
+
+model UserImage {
+  id     String @id @default(uuid())
+  url    String
+  userId String @unique
+  user   User?  @relation(fields: [userId], references: [id])
+}
+
+model Event {
+  id            String            @id @default(uuid())
+  title         String
+  description   String
+  authorId      String
+  author        User              @relation(fields: [authorId], references: [id])
+  venueId       String?
+  venue         Venue?            @relation(fields: [venueId], references: [id])
+  datetime      DateTime?
+  speakers      Speaker[]
+  inscriptions  Inscription[]
+  posterImageId String?
+  posterImage   EventPosterImage?
+  images        EventImage[]
+}
+
+model EventImage {
+  id      String @id @default(uuid())
+  url     String
+  eventId String @unique
+  event   Event? @relation(fields: [eventId], references: [id])
+}
+
+model EventPosterImage {
+  id      String @id @default(uuid())
+  url     String
+  eventId String @unique
+  event   Event? @relation(fields: [eventId], references: [id])
+}
+
+model Venue {
+  id            String      @id @default(uuid())
+  name          String
+  googleMapsUrl String?
+  image         VenueImage?
+  events        Event[]
+}
+
+model VenueImage {
+  id      String @id @default(uuid())
+  url     String
+  venueId String @unique
+  venue   Venue? @relation(fields: [venueId], references: [id])
+}
+
+model Speaker {
+  id      String        @id @default(uuid())
+  userId  String?
+  name    String?
+  bio     String?
+  eventId String?
+  event   Event?        @relation(fields: [eventId], references: [id])
+  image   SpeakerImage?
+}
+
+model SpeakerImage {
+  id        String   @id @default(uuid())
+  url       String
+  speakerId String   @unique
+  speaker   Speaker? @relation(fields: [speakerId], references: [id])
+}
+
+model Inscription {
+  id         String  @id @default(uuid())
+  userId     String
+  user       User    @relation(fields: [userId], references: [id])
+  eventId    String
+  event      Event   @relation(fields: [eventId], references: [id])
+  isAccepted Boolean @default(false)
+  isRejected Boolean @default(false)
+  isCanceled Boolean @default(false)
+}
