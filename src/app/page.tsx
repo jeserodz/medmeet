@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div>
+    <body>
       <nav className="navbar navbar-expand navbar-dark topbar static-top shadow-sm bg-dark osahan-nav-top">
         <div className="container">
           <a className="navbar-brand" href="index.html">
@@ -1051,6 +1051,6 @@ export default function Home() {
           </p>
         </div>
       </footer>
-    </div>
+    </body>
   );
 }
