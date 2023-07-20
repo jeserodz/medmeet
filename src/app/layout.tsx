@@ -21,11 +21,11 @@ export default function RootLayout({
         />
         <link rel="icon" type="image/png" href="img/favicon.png" />
         <title>Movbok - Movies, Events, Sports Website HTML Template</title>
+        <Script src="vendor/jquery/jquery.min.js" />
+        <Script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></Script>
+        <Script type="text/javascript" src="vendor/slick/slick.min.js"></Script>
       </head>
       {children}
-      <Script src="vendor/jquery/jquery.min.js" />
-      <Script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></Script>
-      <Script type="text/javascript" src="vendor/slick/slick.min.js"></Script>
       <Script src="js/osahan.js"></Script>
     </html>
   );
