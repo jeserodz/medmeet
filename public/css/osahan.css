@@ -757,6 +757,10 @@ label {
   justify-content: center;
 }
 
+.osahan-slider {
+  display: none;
+}
+
 .osahan-slider-item {
   margin: 0 8px;
   outline: none;
@@ -1038,19 +1042,19 @@ label {
 
 /* Login / Register */
 .bg-login-image {
-  background: url('../img/login.jpg');
+  background: url('https://images.pexels.com/photos/7648319/pexels-photo-7648319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url('../img/login3.jpg');
+  background: url('https://images.pexels.com/photos/5862272/pexels-photo-5862272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   background-position: center;
   background-size: cover;
 }
 
 .bg-password-image {
-  background: url('../img/login2.jpg');
+  background: url('https://images.pexels.com/photos/7550891/pexels-photo-7550891.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   background-position: center;
   background-size: cover;
 }
