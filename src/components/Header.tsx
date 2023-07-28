@@ -2,7 +2,7 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 
-export function TopNavbar() {
+export function Header() {
   const router = useRouter();
 
   async function handleLogout() {
@@ -15,7 +15,7 @@ export function TopNavbar() {
     <nav className="navbar navbar-expand navbar-dark topbar static-top shadow-sm bg-dark osahan-nav-top">
       <div className="container">
         <a className="navbar-brand" href="index.html">
-          <img src="img/logo.png" alt="logo" />
+          <img src="/img/logo.png" alt="logo" />
         </a>
 
         <form className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
@@ -112,7 +112,7 @@ export function TopNavbar() {
               </a>
               <a className="dropdown-item d-flex align-items-center" href="#">
                 <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle w-60" src="img/s1.png" />
+                  <img className="rounded-circle w-60" src="/img/s1.png" />
                   <div className="status-indicator bg-success" />
                 </div>
                 <div>
@@ -126,7 +126,7 @@ export function TopNavbar() {
               </a>
               <a className="dropdown-item d-flex align-items-center" href="#">
                 <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle w-60" src="img/s2.png" />
+                  <img className="rounded-circle w-60" src="/img/s2.png" />
                   <div className="status-indicator" />
                 </div>
                 <div>
@@ -139,7 +139,7 @@ export function TopNavbar() {
               </a>
               <a className="dropdown-item d-flex align-items-center" href="#">
                 <div className="dropdown-list-image mr-3">
-                  <img className="rounded-circle w-60" src="img/s3.png" />
+                  <img className="rounded-circle w-60" src="/img/s3.png" />
                   <div className="status-indicator bg-warning" />
                 </div>
                 <div>
@@ -196,7 +196,7 @@ export function TopNavbar() {
               <span className="mr-2 d-none d-lg-inline small">
                 askbootstrap
               </span>
-              <img className="img-profile rounded-circle" src="img/s4.png" />
+              <img className="img-profile rounded-circle" src="/img/s4.png" />
             </a>
 
             <div

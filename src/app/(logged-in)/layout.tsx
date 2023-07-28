@@ -3,7 +3,7 @@ import Script from 'next/script';
 import '../../../public/vendor/slick/slick.min.css';
 import '../../../public/vendor/slick/slick-theme.min.css';
 import '../../../public/vendor/fontawesome-free/css/all.min.css';
-import '../../../public/vendor/bootstrap/css/bootstrap.min.css';
+import '../../../public/vendor/bootstrap/css/bootstrap.css';
 import '../../../public/css/osahan.css';
 
 export default function RootLayout({
