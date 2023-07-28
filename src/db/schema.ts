@@ -15,6 +15,13 @@ export const users = pgTable('users', {
   created_at: timestamp('created_at', { withTimezone: true }).defaultNow(),
 });
 
+export const venues = pgTable('venues', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  name: text('name'),
+  google_maps_place_id: text('google_maps_place_id'),
+  created_at: timestamp('created_at', { withTimezone: true }).defaultNow(),
+});
+
 export const events = pgTable('events', {
   id: uuid('id').defaultRandom().primaryKey(),
   title: text('title'),
@@ -48,6 +55,7 @@ export const images = pgTable('images', {
   id: uuid('id').defaultRandom().primaryKey(),
   url: text('url'),
   user_id: uuid('user_id'),
+  venue_id: uuid('venue_id'),
   event_id: uuid('event_id'),
   is_poster: boolean('is_poster'),
   created_at: timestamp('created_at', { withTimezone: true }).defaultNow(),
@@ -63,8 +71,13 @@ export const usersRelations = relations(users, ({ many }) => ({
   images: many(images),
 }));
 
+export const venuesRelations = relations(venues, ({ many }) => ({
+  events: many(events),
+}));
+
 export const eventsRelations = relations(events, ({ one, many }) => ({
   owner: one(users, { fields: [events.author_id], references: [users.id] }),
+  venue: one(venues, { fields: [events.venue_id], references: [venues.id] }),
   registrations: many(eventRegistrations),
   speakers: many(eventSpeakers),
   images: many(images),
