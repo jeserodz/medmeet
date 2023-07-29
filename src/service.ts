@@ -1,11 +1,23 @@
 import { cookies } from 'next/headers';
 import { createServerComponentClient, Session, } from '@supabase/auth-helpers-nextjs'; // prettier-ignore
-import { db, users } from './db';
+import { eq } from 'drizzle-orm';
+import { db, User, users } from './db';
 
 export async function getSessionForServer() {
   const supabase = createServerComponentClient({ cookies });
   const session = await supabase.auth.getSession();
   return session.data.session;
+}
+
+export async function getUserFromSession(session: Session | null) {
+  if (!session?.user) return null;
+
+  const [user]: User[] = await db
+    .select()
+    .from(users)
+    .where(eq(users.id, session.user.id));
+
+  return user || null;
 }
 
 /**

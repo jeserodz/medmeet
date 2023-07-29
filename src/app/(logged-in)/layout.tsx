@@ -8,12 +8,17 @@ import '../../../public/css/osahan.css';
 import { Header } from '../../components/Header';
 import { Navbar } from '../../components/Navbar';
 import { Footer } from '../../components/Footer';
+import { UserProvider } from '../../providers/UserProvider';
+import { getSessionForServer, getUserFromSession } from '../../service';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getSessionForServer();
+  const user = await getUserFromSession(session);
+
   return (
     <html lang="en">
       <head>
@@ -32,10 +37,12 @@ export default function RootLayout({
         ></Script>
       </head>
       <body>
-        <Header />
-        <Navbar />
-        {children}
-        <Footer />
+        <UserProvider user={user}>
+          <Header />
+          <Navbar />
+          {children}
+          <Footer />
+        </UserProvider>
       </body>
       <Script src="/js/osahan.js"></Script>
     </html>

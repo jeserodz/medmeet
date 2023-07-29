@@ -1,9 +1,12 @@
 'use client';
+import Link from 'next/link';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
+import { useUser } from '../providers/UserProvider';
 
 export function Header() {
   const router = useRouter();
+  const user = useUser();
 
   async function handleLogout() {
     const supabase = createClientComponentClient();
@@ -14,9 +17,9 @@ export function Header() {
   return (
     <nav className="navbar navbar-expand navbar-dark topbar static-top shadow-sm bg-dark osahan-nav-top">
       <div className="container">
-        <a className="navbar-brand" href="index.html">
+        <Link className="navbar-brand" href="/">
           <img src="/img/logo.png" alt="logo" />
-        </a>
+        </Link>
 
         <form className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
           <div className="input-group">
@@ -194,7 +197,7 @@ export function Header() {
               aria-expanded="false"
             >
               <span className="mr-2 d-none d-lg-inline small">
-                askbootstrap
+                Hi {user?.user?.first_name}!
               </span>
               <img className="img-profile rounded-circle" src="/img/s4.png" />
             </a>
@@ -203,23 +206,10 @@ export function Header() {
               className="dropdown-menu dropdown-menu-right shadow-sm animated--grow-in"
               aria-labelledby="userDropdown"
             >
-              <a className="dropdown-item" href="profile.html">
+              <Link className="dropdown-item" href="/profiles/me">
                 <i className="fas fa-user-circle fa-sm fa-fw mr-2 ri" />
                 Profile
-              </a>
-              <a className="dropdown-item" href="profile.html">
-                <i className="fas fa-heart fa-sm fa-fw mr-2 ri" />
-                Watchlist
-              </a>
-              <a className="dropdown-item" href="profile.html">
-                <i className="fas fa-list-alt fa-sm fa-fw mr-2 ri" />
-                Your Lists
-              </a>
-              <a className="dropdown-item" href="profile.html">
-                <i className="fas fa-cog fa-sm fa-fw mr-2 ri" />
-                Account Settings
-              </a>
-              <div className="dropdown-divider" />
+              </Link>
               <div
                 className="dropdown-item"
                 data-toggle="modal"
