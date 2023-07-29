@@ -1,5 +1,6 @@
 import { Header } from '@/components/Header';
 import { Navbar } from '@/components/Navbar';
+import Link from 'next/link';
 
 export default function CreateEventPage() {
   return (
@@ -428,7 +429,7 @@ export default function CreateEventPage() {
           <div className="row list-bp">
             <div className="col-xl-4 col-md-6 mb-4">
               <div className="card e-card shadow border-0">
-                <a href="events-detail.html">
+                <Link href="/events/1">
                   <div className="m-card-cover">
                     <img src="img/e1.jpg" className="card-img-top" alt="..." />
                   </div>
@@ -455,12 +456,12 @@ export default function CreateEventPage() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-xl-4 col-md-6 mb-4">
               <div className="card e-card shadow border-0">
-                <a href="events-detail.html">
+                <Link href="/events/1">
                   <div className="m-card-cover">
                     <img src="img/e2.jpg" className="card-img-top" alt="..." />
                   </div>
@@ -487,12 +488,12 @@ export default function CreateEventPage() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-xl-4 col-md-6 mb-4">
               <div className="card e-card shadow border-0">
-                <a href="events-detail.html">
+                <Link href="/events/1">
                   <div className="m-card-cover">
                     <img src="img/e3.jpg" className="card-img-top" alt="..." />
                   </div>
@@ -519,12 +520,12 @@ export default function CreateEventPage() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-xl-4 col-md-6 mb-4">
               <div className="card e-card shadow border-0">
-                <a href="events-detail.html">
+                <Link href="/events/1">
                   <div className="m-card-cover">
                     <img src="img/e4.jpg" className="card-img-top" alt="..." />
                   </div>
@@ -551,12 +552,12 @@ export default function CreateEventPage() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-xl-4 col-md-6 mb-4">
               <div className="card e-card shadow border-0">
-                <a href="events-detail.html">
+                <Link href="/events/1">
                   <div className="m-card-cover">
                     <img src="img/e1.jpg" className="card-img-top" alt="..." />
                   </div>
@@ -583,12 +584,12 @@ export default function CreateEventPage() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-xl-4 col-md-6 mb-4">
               <div className="card e-card shadow border-0">
-                <a href="events-detail.html">
+                <Link href="/events/1">
                   <div className="m-card-cover">
                     <img src="img/e2.jpg" className="card-img-top" alt="..." />
                   </div>
@@ -615,12 +616,12 @@ export default function CreateEventPage() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-xl-4 col-md-6 mb-4">
               <div className="card e-card shadow border-0">
-                <a href="events-detail.html">
+                <Link href="/events/1">
                   <div className="m-card-cover">
                     <img src="img/e3.jpg" className="card-img-top" alt="..." />
                   </div>
@@ -647,12 +648,12 @@ export default function CreateEventPage() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-xl-4 col-md-6 mb-4">
               <div className="card e-card shadow border-0">
-                <a href="events-detail.html">
+                <Link href="/events/1">
                   <div className="m-card-cover">
                     <img src="img/e4.jpg" className="card-img-top" alt="..." />
                   </div>
@@ -679,12 +680,12 @@ export default function CreateEventPage() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-xl-4 col-md-6 mb-4">
               <div className="card e-card shadow border-0">
-                <a href="events-detail.html">
+                <Link href="/events/1">
                   <div className="m-card-cover">
                     <img src="img/e1.jpg" className="card-img-top" alt="..." />
                   </div>
@@ -711,7 +712,7 @@ export default function CreateEventPage() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
