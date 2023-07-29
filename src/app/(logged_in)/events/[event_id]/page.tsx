@@ -1,8 +1,16 @@
+import Image from 'next/image';
+
 export default function EventDetailsPage() {
   return (
     <div>
       <div className="cover-pic">
-        <img src="/img/cover.jpg" className="img-fluid" alt="..." />
+        <Image
+          src="/img/cover.jpg"
+          width={1300}
+          height={508}
+          className="img-fluid"
+          alt="..."
+        />
       </div>
       <div className="container mb-4 pb-2 list-bp">
         <div className="row">

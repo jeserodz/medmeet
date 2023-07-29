@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import { useUser } from '../providers/UserProvider';
+import Image from 'next/image';
 
 export function Header() {
   const router = useRouter();
@@ -18,7 +19,7 @@ export function Header() {
     <nav className="navbar navbar-expand navbar-dark topbar static-top shadow-sm bg-dark osahan-nav-top">
       <div className="container">
         <Link className="navbar-brand" href="/">
-          <img src="/img/logo.png" alt="logo" />
+          <Image width={152} height={27} src="/img/logo.png" alt="logo" />
         </Link>
 
         <form className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
