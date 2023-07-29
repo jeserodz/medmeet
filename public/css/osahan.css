@@ -745,11 +745,11 @@ label {
     width: 100%;
   }
 }
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   .osahan-nav-mid ul.navbar-nav.mr-auto .nav-item span {
     display: none;
   }
-}
+} */
 
 .icon-circle {
   height: 2.5rem;
@@ -1001,6 +1001,10 @@ label {
 
 .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
   color: #858796;
+}
+
+.nav-item i {
+  margin-right: 0.5em;
 }
 
 @-webkit-keyframes growIn {
