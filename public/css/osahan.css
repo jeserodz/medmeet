@@ -119,6 +119,7 @@ label {
 }
 .m-card-cover {
   overflow: hidden;
+  aspect-ratio: 534 / 799;
 }
 .btn-link {
   color: #2575fc;

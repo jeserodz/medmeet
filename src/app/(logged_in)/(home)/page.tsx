@@ -1,6 +1,7 @@
 import { Header } from '@/components/Header';
 import { Navbar } from '@/components/Navbar';
 import { HomeSlider } from '@/components/HomeSlider';
+import { EventCard } from '../../../components/EventCard';
 
 export default function HomePage() {
   return (
@@ -19,230 +20,19 @@ export default function HomePage() {
           </a>
         </div>
         <div className="row">
-          <div className="col-xl-3 col-md-6 mb-4">
-            <div className="card e-card shadow border-0">
-              <a href="events-detail.html">
-                <div className="m-card-cover">
-                  <img src="img/e1.jpg" className="card-img-top" alt="..." />
-                </div>
-                <div className="card-body p-0">
-                  <div className="row no-gutters align-items-center">
-                    <div className="col-2 auto py-3 pl-3">
-                      <div className="bg-white rounded text-center">
-                        <h6 className="text-danger mb-0 font-weight-bold">
-                          07
-                        </h6>
-                        <small className="text-muted">OCT</small>
-                      </div>
-                    </div>
-                    <div className="col-10 p-3">
-                      <p className="card-text text-gray-900 mb-1">
-                        Glasgow International Comedy Festival
-                      </p>
-                      <p className="card-text">
-                        <small className="text-muted">
-                          <i className="fas fa-map-marker-alt fa-sm mr-1" />{' '}
-                          Glasgow, Scotland
-                        </small>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-xl-3 col-md-6 mb-4">
-            <div className="card e-card shadow border-0">
-              <a href="events-detail.html">
-                <div className="m-card-cover">
-                  <img src="img/e2.jpg" className="card-img-top" alt="..." />
-                </div>
-                <div className="card-body p-0">
-                  <div className="row no-gutters align-items-center">
-                    <div className="col-2 auto py-3 pl-3">
-                      <div className="bg-white rounded text-center">
-                        <h6 className="text-danger mb-0 font-weight-bold">
-                          10
-                        </h6>
-                        <small className="text-muted">OCT</small>
-                      </div>
-                    </div>
-                    <div className="col-10 p-3">
-                      <p className="card-text text-gray-900 mb-1">
-                        Vancouver Fashion Week
-                      </p>
-                      <p className="card-text">
-                        <small className="text-muted">
-                          <i className="fas fa-map-marker-alt fa-sm mr-1" />{' '}
-                          Vancouver, Canada
-                        </small>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-xl-3 col-md-6 mb-4">
-            <div className="card e-card shadow border-0">
-              <a href="events-detail.html">
-                <div className="m-card-cover">
-                  <img src="img/e3.jpg" className="card-img-top" alt="..." />
-                </div>
-                <div className="card-body p-0">
-                  <div className="row no-gutters align-items-center">
-                    <div className="col-2 auto py-3 pl-3">
-                      <div className="bg-white rounded text-center">
-                        <h6 className="text-danger mb-0 font-weight-bold">
-                          15
-                        </h6>
-                        <small className="text-muted">OCT</small>
-                      </div>
-                    </div>
-                    <div className="col-10 p-3">
-                      <p className="card-text text-gray-900 mb-1">
-                        DC Environmental Film Festival
-                      </p>
-                      <p className="card-text">
-                        <small className="text-muted">
-                          <i className="fas fa-map-marker-alt fa-sm mr-1" />{' '}
-                          Washington DC, USA
-                        </small>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-xl-3 col-md-6 mb-4">
-            <div className="card e-card shadow border-0">
-              <a href="events-detail.html">
-                <div className="m-card-cover">
-                  <img src="img/e4.jpg" className="card-img-top" alt="..." />
-                </div>
-                <div className="card-body p-0">
-                  <div className="row no-gutters align-items-center">
-                    <div className="col-2 auto py-3 pl-3">
-                      <div className="bg-white rounded text-center">
-                        <h6 className="text-danger mb-0 font-weight-bold">
-                          22
-                        </h6>
-                        <small className="text-muted">OCT</small>
-                      </div>
-                    </div>
-                    <div className="col-10 p-3">
-                      <p className="card-text text-gray-900 mb-1">
-                        Cape Town International Jazz Festival
-                      </p>
-                      <p className="card-text">
-                        <small className="text-muted">
-                          <i className="fas fa-map-marker-alt fa-sm mr-1" />{' '}
-                          Cape Town, South Africa
-                        </small>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-xl-3 col-md-6 mb-4">
-            <div className="card e-card shadow border-0">
-              <a href="events-detail.html">
-                <div className="m-card-cover">
-                  <img src="img/e2.jpg" className="card-img-top" alt="..." />
-                </div>
-                <div className="card-body p-0">
-                  <div className="row no-gutters align-items-center">
-                    <div className="col-2 auto py-3 pl-3">
-                      <div className="bg-white rounded text-center">
-                        <h6 className="text-danger mb-0 font-weight-bold">
-                          10
-                        </h6>
-                        <small className="text-muted">OCT</small>
-                      </div>
-                    </div>
-                    <div className="col-10 p-3">
-                      <p className="card-text text-gray-900 mb-1">
-                        Vancouver Fashion Week
-                      </p>
-                      <p className="card-text">
-                        <small className="text-muted">
-                          <i className="fas fa-map-marker-alt fa-sm mr-1" />{' '}
-                          Vancouver, Canada
-                        </small>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-xl-3 col-md-6 mb-4">
-            <div className="card e-card shadow border-0">
-              <a href="events-detail.html">
-                <div className="m-card-cover">
-                  <img src="img/e3.jpg" className="card-img-top" alt="..." />
-                </div>
-                <div className="card-body p-0">
-                  <div className="row no-gutters align-items-center">
-                    <div className="col-2 auto py-3 pl-3">
-                      <div className="bg-white rounded text-center">
-                        <h6 className="text-danger mb-0 font-weight-bold">
-                          15
-                        </h6>
-                        <small className="text-muted">OCT</small>
-                      </div>
-                    </div>
-                    <div className="col-10 p-3">
-                      <p className="card-text text-gray-900 mb-1">
-                        DC Environmental Film Festival
-                      </p>
-                      <p className="card-text">
-                        <small className="text-muted">
-                          <i className="fas fa-map-marker-alt fa-sm mr-1" />{' '}
-                          Washington DC, USA
-                        </small>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-xl-3 col-md-6 mb-4">
-            <div className="card e-card shadow border-0">
-              <a href="events-detail.html">
-                <div className="m-card-cover">
-                  <img src="img/e4.jpg" className="card-img-top" alt="..." />
-                </div>
-                <div className="card-body p-0">
-                  <div className="row no-gutters align-items-center">
-                    <div className="col-2 auto py-3 pl-3">
-                      <div className="bg-white rounded text-center">
-                        <h6 className="text-danger mb-0 font-weight-bold">
-                          22
-                        </h6>
-                        <small className="text-muted">OCT</small>
-                      </div>
-                    </div>
-                    <div className="col-10 p-3">
-                      <p className="card-text text-gray-900 mb-1">
-                        Cape Town International Jazz Festival
-                      </p>
-                      <p className="card-text">
-                        <small className="text-muted">
-                          <i className="fas fa-map-marker-alt fa-sm mr-1" />{' '}
-                          Cape Town, South Africa
-                        </small>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+          {Array(8)
+            .fill(0)
+            .map((_, i) => (
+              <div key={i} className="col-xl-3 col-md-6 mb-4">
+                <EventCard
+                  id={1}
+                  title="Vancouver Fashion Week"
+                  location="Vancouver, Canada"
+                  date={new Date()}
+                  image=""
+                />
+              </div>
+            ))}
         </div>
       </div>
     </div>
