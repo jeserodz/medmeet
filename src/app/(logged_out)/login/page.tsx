@@ -27,14 +27,14 @@ export default async function TestPage() {
                     <SignInForm />
                     <hr />
                     <div className="text-center">
-                      <Link className="small" href="forgot-password">
+                      <a className="small" href="forgot-password">
                         Forgot Password?
-                      </Link>
+                      </a>
                     </div>
                     <div className="text-center">
-                      <Link className="small" href="/register">
+                      <a className="small" href="/register">
                         Create an Account!
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>

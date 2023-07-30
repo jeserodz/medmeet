@@ -39,14 +39,14 @@ export default function ForgotPasswordPage() {
                     </form>
                     <hr />
                     <div className="text-center">
-                      <Link className="small" href="register">
+                      <a className="small" href="register">
                         Create an Account!
-                      </Link>
+                      </a>
                     </div>
                     <div className="text-center">
-                      <Link className="small" href="login">
+                      <a className="small" href="login">
                         Already have an account? Login!
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>

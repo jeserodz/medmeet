@@ -18,9 +18,9 @@ export function Header() {
   return (
     <nav className="navbar navbar-expand navbar-dark topbar static-top shadow-sm bg-dark osahan-nav-top">
       <div className="container">
-        <Link className="navbar-brand" href="/">
+        <a className="navbar-brand" href="/">
           <Image width={152} height={27} src="/img/logo.png" alt="logo" />
-        </Link>
+        </a>
 
         <form className="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search">
           <div className="input-group">
@@ -77,7 +77,7 @@ export function Header() {
           </li>
 
           <li className="nav-item dropdown no-arrow">
-            <Link
+            <a
               className="nav-link dropdown-toggle pr-0"
               href="/profiles/me"
               id="userDropdown"
@@ -90,16 +90,16 @@ export function Header() {
                 Hi {user?.user?.first_name}!
               </span>
               <img className="img-profile rounded-circle" src="/img/s4.png" />
-            </Link>
+            </a>
 
             <div
               className="dropdown-menu dropdown-menu-right shadow-sm animated--grow-in"
               aria-labelledby="userDropdown"
             >
-              <Link className="dropdown-item" href="/profiles/me">
+              <a className="dropdown-item" href="/profiles/me">
                 <i className="fas fa-user-circle fa-sm fa-fw mr-2 ri" />
                 Profile
-              </Link>
+              </a>
               <div
                 className="dropdown-item"
                 data-toggle="modal"

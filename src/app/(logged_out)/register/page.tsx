@@ -20,14 +20,14 @@ export default function RegisterPage() {
                   <SignUpForm />
                   <hr />
                   <div className="text-center">
-                    <Link className="small" href="forgot-password">
+                    <a className="small" href="forgot-password">
                       Forgot Password?
-                    </Link>
+                    </a>
                   </div>
                   <div className="text-center">
-                    <Link className="small" href="login">
+                    <a className="small" href="login">
                       Already have an account? Login!
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
