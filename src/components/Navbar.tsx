@@ -1,17 +1,29 @@
-import Link from 'next/link';
+'use client';
+import classNames from 'classnames';
+import { usePathname } from 'next/navigation';
 
 export function Navbar() {
+  const pathname = usePathname();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark osahan-nav-mid">
       <div className="container">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
+          <li
+            className={classNames('nav-item', {
+              'font-weight-bolder': pathname === '/',
+            })}
+          >
             <a className="nav-link" href="/">
               <i className="fas fa-fw fa-home" />
               <span>Home</span>
             </a>
           </li>
-          <li className="nav-item">
+          <li
+            className={classNames('nav-item', {
+              'font-weight-bolder': pathname.startsWith('/events'),
+            })}
+          >
             <a className="nav-link" href="/events">
               <i className="fas fa-fw fa-glass-cheers" />
               <span>Events</span>
