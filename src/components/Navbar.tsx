@@ -6,6 +6,12 @@ export function Navbar() {
       <div className="container">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
+            <a className="nav-link" href="/">
+              <i className="fas fa-fw fa-home" />
+              <span>Home</span>
+            </a>
+          </li>
+          <li className="nav-item">
             <a className="nav-link" href="/events">
               <i className="fas fa-fw fa-glass-cheers" />
               <span>Events</span>
