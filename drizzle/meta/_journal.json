@@ -15,6 +15,13 @@
       "when": 1690537305374,
       "tag": "0001_fluffy_tenebrous",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1691057399611,
+      "tag": "0002_little_excalibur",
+      "breakpoints": true
     }
   ]
 }

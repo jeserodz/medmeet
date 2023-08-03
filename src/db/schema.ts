@@ -11,6 +11,7 @@ export const users = pgTable('users', {
   is_business: boolean('is_business'),
   first_name: text('first_name'),
   last_name: text('last_name'),
+  avatar_url: text('avatar_url'),
   email: text('email').notNull(),
   created_at: timestamp('created_at', { withTimezone: true }).defaultNow(),
 });
@@ -54,7 +55,6 @@ export const eventSpeakers = pgTable('event_speakers', {
 export const images = pgTable('images', {
   id: uuid('id').defaultRandom().primaryKey(),
   url: text('url'),
-  user_id: uuid('user_id'),
   venue_id: uuid('venue_id'),
   event_id: uuid('event_id'),
   is_poster: boolean('is_poster'),
@@ -68,7 +68,6 @@ export const usersRelations = relations(users, ({ many }) => ({
   ownedEvents: many(events),
   joinedEvents: many(eventRegistrations),
   speakingEvents: many(eventSpeakers),
-  images: many(images),
 }));
 
 export const venuesRelations = relations(venues, ({ many }) => ({
@@ -109,8 +108,8 @@ export const eventSpeakersRelations = relations(eventSpeakers, ({ one }) => ({
 }));
 
 export const imagesRelations = relations(images, ({ one }) => ({
-  user: one(users, { fields: [images.user_id], references: [users.id] }),
   event: one(events, { fields: [images.event_id], references: [events.id] }),
+  venue: one(venues, { fields: [images.venue_id], references: [venues.id] }),
 }));
 
 // ========================
