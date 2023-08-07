@@ -1,20 +1,23 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { User } from '../db';
 
-type UserContextType = { user: User | null };
+const UserContext = createContext({
+  user: null as User | null,
+  setUser: (user: User | null) => {},
+});
 
-type UserProviderProps = {
+export function UserProvider(props: {
   children: React.ReactNode;
-  user: UserContextType['user'];
-};
+  userFromServer: User | null;
+}) {
+  const [user, setUser] = useState(props.userFromServer || null);
 
-const UserContext = createContext<UserContextType>({ user: null });
-
-export function UserProvider({ children, user }: UserProviderProps) {
   return (
-    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, setUser }}>
+      {props.children}
+    </UserContext.Provider>
   );
 }
 

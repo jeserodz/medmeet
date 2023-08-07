@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export function Header() {
   const router = useRouter();
-  const user = useUser();
+  const { user } = useUser();
 
   async function handleLogout() {
     const supabase = createClientComponentClient();
@@ -87,9 +87,12 @@ export function Header() {
               aria-expanded="false"
             >
               <span className="mr-2 d-none d-lg-inline small">
-                Hi {user?.user?.first_name}!
+                Hi {user?.first_name}!
               </span>
-              <img className="img-profile rounded-circle" src="/img/s4.png" />
+              <img
+                className="img-profile rounded-circle"
+                src={user?.avatar_url || '/img/s4.png'}
+              />
             </a>
 
             <div

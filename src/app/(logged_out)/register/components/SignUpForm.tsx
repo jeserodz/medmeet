@@ -17,7 +17,7 @@ export function SignUpForm() {
       options: {
         data: {
           first_name: fields?.firstName.value,
-          last_name: fields?.firstName.value,
+          last_name: fields?.lastName.value,
         },
         emailRedirectTo: `${location.origin}/login`,
       },

@@ -52,7 +52,7 @@ export default async function RootLayout({
         ></Script>
       </head>
       <body>
-        <UserProvider user={user}>
+        <UserProvider userFromServer={user}>
           <Header />
           <Navbar />
           {children}
