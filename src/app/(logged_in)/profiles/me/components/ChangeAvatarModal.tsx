@@ -25,7 +25,7 @@ export function ChangeAvatarModal() {
     formData.append('file', selectedImage);
     formData.append('croppedArea', JSON.stringify(croppedArea));
 
-    const response = await fetch('/profiles/me/api/change-avatar', {
+    const response = await fetch('/api/users/change-avatar', {
       method: 'POST',
       body: formData,
     });

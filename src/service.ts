@@ -10,6 +10,12 @@ export async function getSessionForServer() {
   return session.data.session;
 }
 
+export async function getUserForServer() {
+  const session = await getSessionForServer();
+  const user = await getUserFromSession(session);
+  return user;
+}
+
 export async function getUserFromSession(session: Session | null) {
   if (!session?.user) return null;
 

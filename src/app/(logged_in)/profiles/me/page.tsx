@@ -4,6 +4,7 @@ import { ProfileTab } from './components/ProfileTab';
 import { AccountSettingsTab } from './components/AccountSettingsTab';
 import { TabMenu } from './components/TabMenu';
 import { ProfileAd } from './components/ProfileAd';
+import { NextResponse } from 'next/server';
 
 export default function MyProfilePage() {
   return (
@@ -47,4 +48,8 @@ export default function MyProfilePage() {
       </div>
     </div>
   );
+}
+
+export async function POST() {
+  return NextResponse.json({ ok: true });
 }

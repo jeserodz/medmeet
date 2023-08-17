@@ -25,7 +25,9 @@ export default function RootLayout({
         <Script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></Script>
         <Script type="text/javascript" src="vendor/slick/slick.min.js"></Script>
       </head>
-      <body className="bg-gradient-primary">{children}</body>
+      <body className="bg-gradient-primary" suppressHydrationWarning>
+        {children}
+      </body>
       <Script src="js/osahan.js"></Script>
     </html>
   );
