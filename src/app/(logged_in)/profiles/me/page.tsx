@@ -49,7 +49,3 @@ export default function MyProfilePage() {
     </div>
   );
 }
-
-export async function POST() {
-  return NextResponse.json({ ok: true });
-}
