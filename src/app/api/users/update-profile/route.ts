@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { validationSchemas } from '../../../../util/constants';
-import { getUserForServer } from '../../../../service';
-import { db, users } from '../../../../db';
+import { validationSchemas } from '@/util/constants';
+import { getUserForServer } from '@/service';
+import { db, users } from '@/db';
 import { eq } from 'drizzle-orm';
 
 export async function PATCH(req: NextRequest) {

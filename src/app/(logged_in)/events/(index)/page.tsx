@@ -2,20 +2,30 @@ import { Header } from '@/components/Header';
 import { Navbar } from '@/components/Navbar';
 import Link from 'next/link';
 import { EventCard } from '../../../../components/EventCard';
+import { EventService } from '../../../../services/event.service';
 
-export default function CreateEventPage() {
+export default async function CreateEventPage() {
+  const events = await EventService.getAll();
   return (
     <div className="container">
       {/* Page Heading */}
       <div className="row">
         <div className="col-12 d-sm-flex align-items-center justify-content-between mt-5 mb-3">
           <h1 className="h5 mb-0 float-left">Events</h1>
-          <a
-            href="#"
-            className="float-right d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-          >
-            Reset Filters <i className="fas fa-times fa-sm text-white-50" />
-          </a>
+          <div>
+            <a
+              href="#"
+              className="d-sm-inline-block mr-2 btn btn-sm btn-secondary shadow-sm"
+            >
+              Reset Filters <i className="fas fa-times fa-sm text-white-50" />
+            </a>
+            <a
+              href="/events/create"
+              className="d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+            >
+              New Event
+            </a>
+          </div>
         </div>
       </div>
       {/* Content Row */}
@@ -428,26 +438,23 @@ export default function CreateEventPage() {
         </div>
         <div className="col-xl-9 col-lg-8">
           <div className="row list-bp">
-            {Array(10)
-              .fill(0)
-              .map((_, i) => (
-                <div key={i} className="col-xl-4 col-md-6 mb-4">
-                  <EventCard
-                    key={i}
-                    id={1}
-                    title="Vancouver Fashion Week"
-                    location="Vancouver, Canada"
-                    date={new Date()}
-                    image=""
-                  />
-                </div>
-              ))}
+            {events.map((event) => (
+              <div key={event.id} className="col-xl-4 col-md-6 mb-4">
+                <EventCard
+                  id={event.id}
+                  title={event.title || ''}
+                  location={event.venue?.name || ''}
+                  date={event.datetime ? new Date(event.datetime) : null}
+                  image=""
+                />
+              </div>
+            ))}
           </div>
-          <div className="text-center mt-4 mb-5 col-12">
+          {/* <div className="text-center mt-4 mb-5 col-12">
             <div className="spinner-border" role="status">
               <span className="sr-only">Loading...</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

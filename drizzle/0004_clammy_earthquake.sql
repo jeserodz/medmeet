@@ -1,0 +1,1 @@
+ALTER TABLE "venues" ADD COLUMN "data" json DEFAULT 'null'::json;

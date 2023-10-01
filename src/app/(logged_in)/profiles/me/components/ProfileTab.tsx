@@ -1,13 +1,11 @@
 'use client';
 
-import Image from 'next/image';
 import { useFormik } from 'formik';
-import { string, object } from 'yup';
 import { useUser } from '@/providers/UserProvider';
 import classNames from 'classnames';
 import { useState } from 'react';
-import { Loader } from '../../../../../components/Loader';
-import { PHONE_REGEX, validationSchemas } from '../../../../../util/constants';
+import { Loader } from '@/components/Loader';
+import { PHONE_REGEX, validationSchemas } from '@/util/constants';
 
 export function ProfileTab() {
   const { user, setUser } = useUser();

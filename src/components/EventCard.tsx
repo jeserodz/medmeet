@@ -1,10 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import styles from './EventCard.module.css';
 import { getDateParts } from '../service';
+import classNames from 'classnames';
 
 export type EventCardProps = {
   title: string;
-  date: Date;
+  date?: Date | null;
   location: string;
   image: string;
   id: string | number;
@@ -12,12 +13,12 @@ export type EventCardProps = {
 };
 
 export function EventCard(props: EventCardProps) {
-  const dateParts = getDateParts(props.date);
+  const dateParts = props.date ? getDateParts(props.date) : null;
 
   return (
     <div className="card e-card shadow border-0">
       <a href={props.url || `/events/${props.id}`}>
-        <div className="m-card-cover">
+        <div className={classNames('m-card-cover', styles.cardCover)}>
           <Image
             width={534}
             height={799}

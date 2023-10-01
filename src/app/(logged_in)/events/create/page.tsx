@@ -1,7 +1,10 @@
 import { Header } from '@/components/Header';
 import { Navbar } from '@/components/Navbar';
+import { VenueService } from '@/services/venue.service';
+import { EventForm } from '../components/EventForm';
 
-export default function CreateEventPage() {
+export default async function CreateEventPage() {
+  const venues = await VenueService.getAll();
   return (
     <div>
       <section className="py-4 bg-light  inner-header">
@@ -25,70 +28,7 @@ export default function CreateEventPage() {
       </section>
       <section className="faq-page py-5 bg-light border-top">
         <div className="container">
-          <div className="row">
-            <div className="col-md-12 mx-auto">
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="bg-white p-4 shadow rounded h-100">
-                    <div>
-                      <div className="row gutter-1">
-                        {/* TODO add: input 'Title' */}
-                        {/* TODO add: textarea 'Description' */}
-                        {/* TODO add: timepicker 'Date/Time' */}
-                        {/* TODO add: select 'Venue' */}
-                        {/* TODO add: button 'Save' */}
-                        <div className="col-12">
-                          <div className="form-group">
-                            <label htmlFor="exampleInput8">Old Password</label>
-                            <input
-                              id="exampleInput8"
-                              type="password"
-                              className="form-control is-invalid"
-                              placeholder="Password"
-                            />
-                            <div className="invalid-feedback">
-                              Please provide a valid state.
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="form-group">
-                            <label htmlFor="exampleInput9">New Password</label>
-                            <input
-                              id="exampleInput9"
-                              type="password"
-                              className="form-control"
-                              placeholder="Password"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="form-group">
-                            <label htmlFor="exampleInput10">
-                              Retype New Password
-                            </label>
-                            <input
-                              id="exampleInput10"
-                              type="password"
-                              className="form-control"
-                              placeholder="Password"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col">
-                          <a href="#!" className="btn btn-primary">
-                            Save Changes
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <EventForm venues={venues} />
         </div>
       </section>
     </div>

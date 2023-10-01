@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import Cropper, { Area } from 'react-easy-crop';
-import { useUser } from '../../../../../providers/UserProvider';
-import { User } from '../../../../../db';
+import { useUser } from '@/providers/UserProvider';
+import { User } from '@/db';
 
 export function ChangeAvatarModal() {
   const { setUser } = useUser();

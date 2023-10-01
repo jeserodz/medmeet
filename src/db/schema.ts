@@ -1,5 +1,13 @@
 import { InferModel, relations } from 'drizzle-orm';
-import { pgTable, uuid, text, boolean, timestamp } from 'drizzle-orm/pg-core';
+import {
+  pgTable,
+  uuid,
+  text,
+  boolean,
+  timestamp,
+  json,
+} from 'drizzle-orm/pg-core';
+import { GoogleMapsPlace } from '../types';
 
 // ========================
 // TABLES
@@ -21,6 +29,7 @@ export const venues = pgTable('venues', {
   id: uuid('id').defaultRandom().primaryKey(),
   name: text('name'),
   google_maps_place_id: text('google_maps_place_id'),
+  data: json('data').$type<GoogleMapsPlace | null>().default(null),
   created_at: timestamp('created_at', { withTimezone: true }).defaultNow(),
 });
 
@@ -28,7 +37,7 @@ export const events = pgTable('events', {
   id: uuid('id').defaultRandom().primaryKey(),
   title: text('title'),
   description: text('description'),
-  datetime: timestamp('datetime', { withTimezone: true }),
+  datetime: timestamp('datetime', { mode: 'string', withTimezone: true }),
   author_id: uuid('author_id'),
   venue_id: uuid('venue_id'),
   created_at: timestamp('created_at', { withTimezone: true }).defaultNow(),
@@ -121,6 +130,9 @@ export type NewUser = InferModel<typeof users, 'insert'>;
 
 export type Event = InferModel<typeof events>;
 export type NewEvent = InferModel<typeof events, 'insert'>;
+
+export type Venue = InferModel<typeof venues>;
+export type NewVenue = InferModel<typeof venues, 'insert'>;
 
 export type EventRegistration = InferModel<typeof eventRegistrations>;
 export type NewEventRegistration = InferModel<typeof eventRegistrations,'insert'>; // prettier-ignore

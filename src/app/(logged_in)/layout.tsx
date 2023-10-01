@@ -61,6 +61,9 @@ export default async function RootLayout({
         </UserProvider>
       </body>
       <Script src="/js/osahan.js"></Script>
+      {/* <Script
+        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_MAPS_API_KEY}&libraries=places&callback=initMap`}
+      ></Script> */}
     </html>
   );
 }

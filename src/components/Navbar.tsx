@@ -29,6 +29,16 @@ export function Navbar() {
               <span>Events</span>
             </a>
           </li>
+          <li
+            className={classNames('nav-item', {
+              'font-weight-bolder': pathname.startsWith('/venues'),
+            })}
+          >
+            <a className="nav-link" href="/venues">
+              <i className="fas fa-fw fa-map-pin" />
+              <span>Venues</span>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

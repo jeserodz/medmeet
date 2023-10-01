@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import { Area } from 'react-easy-crop';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import sharp from 'sharp';
-import { db, users } from '../../../../db';
+import { db, users } from '@/db';
 import { eq } from 'drizzle-orm';
 
 export async function POST(request: Request) {

@@ -12,7 +12,7 @@ export function MyEventsTab() {
       <div className="d-sm-flex align-items-center justify-content-between mb-3 overflow-hidden">
         <h1 className="h5 mb-0 float-left">My Events</h1>
         <a
-          href="#"
+          href="/events/create"
           className="float-right d-sm-inline-block btn btn-sm btn-primary text-xs"
         >
           New Event

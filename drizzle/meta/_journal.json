@@ -29,6 +29,27 @@
       "when": 1691400592686,
       "tag": "0003_elite_colossus",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1696077415064,
+      "tag": "0004_clammy_earthquake",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1696102300630,
+      "tag": "0005_glamorous_bastion",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1696102580766,
+      "tag": "0006_amazing_adam_destine",
+      "breakpoints": true
     }
   ]
 }

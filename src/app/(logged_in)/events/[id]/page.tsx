@@ -1,6 +1,19 @@
 import Image from 'next/image';
+import { EventService } from '../../../../services/event.service';
+import { EventMap } from '../components/EventMap';
+import { EventEditModal } from '../components/EventEditModal';
+import { VenueService } from '../../../../services/venue.service';
 
-export default function EventDetailsPage() {
+interface EventDetailsPageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default async function EventDetailsPage(props: EventDetailsPageProps) {
+  const event = await EventService.get(props.params.id);
+  const venues = await VenueService.getAll();
+
   return (
     <div>
       <div className="cover-pic">
@@ -19,19 +32,19 @@ export default function EventDetailsPage() {
               <div className="d-flex align-items-center justify-content-between py-3 px-4 border-bottom">
                 <div>
                   <h3 className="text-gray-900 mb-0 mt-0 font-weight-bold">
-                    Vancouver Fashion Week
+                    {event?.title}
                   </h3>
                   <p className="mb-0">
                     <small className="text-muted">
                       <i className="fas fa-map-marker-alt fa-fw fa-sm mr-1" />{' '}
-                      Vancouver, Canada
+                      {event?.venue?.name}
                     </small>
                   </p>
                 </div>
                 <div>
                   <a
                     href="#"
-                    className="d-sm-inline-block btn btn-primary shadow-sm"
+                    className="d-sm-inline-block btn btn-primary shadow-sm mr-2"
                   >
                     <i className="fas fa-share-alt" />
                   </a>
@@ -40,21 +53,22 @@ export default function EventDetailsPage() {
                     className="d-sm-inline-block btn btn-danger shadow-sm"
                   >
                     {' '}
-                    Add to Watchlist <i className="fas fa-plus fa-sm  ml-1" />
+                    Register <i className="fas fa-plus fa-sm  ml-1" />
                   </a>
+                  <EventEditModal event={event!} venues={venues} />
                 </div>
               </div>
               <div className="d-flex align-items-center justify-content-between py-3 px-4">
                 <div>
                   <p className="mb-0 text-gray-900">
-                    <i className="fas fa-calendar-alt fa-sm fa-fw mr-1" /> Sun
-                    15 Dec at 4:00 PM
+                    <i className="fas fa-calendar-alt fa-sm fa-fw mr-1" />
+                    {event?.datetime &&
+                      new Date(event?.datetime).toLocaleString()}
                   </p>
                 </div>
                 <div>
                   <p className="mb-0 text-gray-600">
-                    <i className="fas fa-film fa-sm fa-fw mr-1" /> Classical,
-                    Rock, Sufi | English, Hindi | 12+
+                    <i className="fas fa-film fa-sm fa-fw mr-1" /> [CATEGORIES]
                   </p>
                 </div>
               </div>
@@ -65,7 +79,7 @@ export default function EventDetailsPage() {
           <div className="col-xl-3 col-lg-3">
             <div className="bg-white p-3 widget shadow rounded mb-4">
               <h1 className="h6 mb-3 mt-0 font-weight-bold text-gray-900">
-                Artist
+                Speakers
               </h1>
               <div className="artist-list mb-3">
                 <a className="d-flex align-items-center" href="#">
@@ -172,19 +186,6 @@ export default function EventDetailsPage() {
                 <li className="nav-item">
                   <a
                     className="nav-link"
-                    id="profile-tab"
-                    data-toggle="tab"
-                    href="#profile"
-                    role="tab"
-                    aria-controls="profile"
-                    aria-selected="false"
-                  >
-                    Date And Time
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a
-                    className="nav-link"
                     id="contact-tab"
                     data-toggle="tab"
                     href="#contact"
@@ -203,63 +204,9 @@ export default function EventDetailsPage() {
                   role="tabpanel"
                   aria-labelledby="home-tab"
                 >
-                  <h6 className="mt-0 mb-3">New Year Eve on the Waterfront</h6>
-                  <p>
-                    Boston Harbor Now in partnership with the Friends of
-                    Christopher Columbus Park, the Wharf District Council and
-                    the City of Boston is proud to announce the New Year Eve
-                    Midnight Harbor Fireworks! This beloved nearly 40-year old
-                    tradition is made possible by the generous support of local
-                    waterfront organizations and businesses and the support of
-                    the City of Boston and the Office of Mayor Marty Walsh.
-                  </p>
-                  <p>
-                    Join us as we ring in the New Year with a dazzling display
-                    over Boston Harbor. Public viewing is free and available
-                    from the Harborwalk of these suggested viewing locations:
-                  </p>
-                  <ul>
-                    <li>Christopher Columbus Park, North End</li>
-                    <li>Fan Pier, Seaport District</li>
-                    <li>East Boston Harborwalk</li>
-                  </ul>
-                  <p className="mb-2">
-                    The show will begin promptly at midnight.
-                  </p>
-                  <p className="mb-0">
-                    Register here for a reminder and updates about the harbor
-                    fireworks and other waterfront public programs as they
-                    become available. Be the first to be notified for popular
-                    waterfront New Year Eve public activities.
-                  </p>
+                  {event?.description}
                 </div>
-                <div
-                  className="tab-pane fade"
-                  id="profile"
-                  role="tabpanel"
-                  aria-labelledby="profile-tab"
-                >
-                  <h5 className="mt-0 mb-3">Mon, Dec 31, 2018, 11:59 PM –</h5>
-                  <p>
-                    Boston Harbor Now in partnership with the Friends of
-                    Christopher Columbus Park, the Wharf District Council and
-                    the City of Boston is proud to announce the New Year Eve
-                    Midnight Harbor Fireworks! This beloved nearly 40-year old
-                    tradition is made possible by the generous support of local
-                    waterfront organizations and businesses and the support of
-                    the City of Boston and the Office of Mayor Marty Walsh.
-                  </p>
-                  <h5 className="mt-0 mb-3">Tue, Jan 1, 2019, 12:19 AM EST</h5>
-                  <p>
-                    Boston Harbor Now in partnership with the Friends of
-                    Christopher Columbus Park, the Wharf District Council and
-                    the City of Boston is proud to announce the New Year Eve
-                    Midnight Harbor Fireworks! This beloved nearly 40-year old
-                    tradition is made possible by the generous support of local
-                    waterfront organizations and businesses and the support of
-                    the City of Boston and the Office of Mayor Marty Walsh.
-                  </p>
-                </div>
+
                 <div
                   className="tab-pane fade"
                   id="contact"
@@ -389,33 +336,16 @@ export default function EventDetailsPage() {
                 Location
               </h1>
               <p>
-                <b>Boston Harborwalk</b>
+                <b>{event?.venue?.name}</b>
                 <br />
-                Christopher Columbus Park
-                <br />
-                Boston, MA 02109
-                <br />
-                United States
-              </p>
-              <p className="text-gray-600">
-                <i className="fas fa-mobile fa-fw" /> +00 12354 89564
-              </p>
-              <p className="mb-0 text-gray-600">
-                <i className="fas fa-envelope-open fa-fw" /> iamosahan@gmail.com
+                {event?.venue?.data?.formatted_address}
               </p>
             </div>
             <div className="bg-white p-3 widget shadow rounded mb-4">
               <h1 className="h6 mb-3 mt-0 font-weight-bold text-gray-900">
                 Map
               </h1>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501889.1723543713!2d73.1567129962395!3d31.003573085499188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391964aa569e7355%3A0x8fbd263103a38861!2sPunjab!5e0!3m2!1sen!2sin!4v1570105072228!5m2!1sen!2sin"
-                width="100%"
-                height={185}
-                frameBorder={0}
-                style={{ border: 0 }}
-                allowFullScreen
-              />
+              {event?.venue && <EventMap venue={event?.venue} />}
             </div>
           </div>
         </div>
