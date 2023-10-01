@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './EventCard.module.css';
-import { getDateParts } from '../service';
+import { getDateParts } from '../util/dates';
 import classNames from 'classnames';
 
 export type EventCardProps = {

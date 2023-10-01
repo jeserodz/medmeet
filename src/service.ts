@@ -2,10 +2,15 @@ import { cookies } from 'next/headers';
 import { createServerComponentClient, Session, } from '@supabase/auth-helpers-nextjs'; // prettier-ignore
 import { eq } from 'drizzle-orm';
 import { db, User, users } from './db';
-import dayjs from 'dayjs';
+import { cache } from 'react';
+
+export const createServerSupabaseClient = cache(() => {
+  const cookieStore = cookies();
+  return createServerComponentClient({ cookies: () => cookieStore });
+});
 
 export async function getSessionForServer() {
-  const supabase = createServerComponentClient({ cookies });
+  const supabase = createServerSupabaseClient();
   const session = await supabase.auth.getSession();
   return session.data.session;
 }
@@ -47,26 +52,4 @@ export async function createUserFromSession(session: Session) {
         last_name: session.user.user_metadata.last_name,
       },
     });
-}
-
-export function getDateParts(date?: Date) {
-  if (!date) return null;
-
-  const d = dayjs(date);
-
-  return {
-    D: d.format('D'),
-    DD: d.format('DD'),
-    ddd: d.format('ddd'),
-    M: d.format('M'),
-    MM: d.format('MM'),
-    MMM: d.format('MMM'),
-    MMMM: d.format('MMMM'),
-    h: d.format('h'),
-    hh: d.format('hh'),
-    s: d.format('s'),
-    ss: d.format('ss'),
-    A: d.format('A'),
-    a: d.format('a'),
-  };
 }

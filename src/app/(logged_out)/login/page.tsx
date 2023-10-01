@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 import { SignInForm } from './components/SignInForm';
 import * as service from '../../../service';
 
-export default async function TestPage() {
+export default async function LoginPage() {
   const session = await service.getSessionForServer();
 
   if (session) {
