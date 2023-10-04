@@ -77,42 +77,51 @@ export function Header() {
           </li>
 
           <li className="nav-item dropdown no-arrow">
-            <a
-              className="nav-link dropdown-toggle pr-0"
-              href="/profiles/me"
-              id="userDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <span className="mr-2 d-none d-lg-inline small">
-                Hi {user?.first_name}!
-              </span>
-              <img
-                className="img-profile rounded-circle"
-                src={user?.avatar_url || '/img/s4.png'}
-              />
-            </a>
-
-            <div
-              className="dropdown-menu dropdown-menu-right shadow-sm animated--grow-in"
-              aria-labelledby="userDropdown"
-            >
-              <a className="dropdown-item" href="/profiles/me">
-                <i className="fas fa-user-circle fa-sm fa-fw mr-2 ri" />
-                Profile
+            {user ? (
+              <>
+                <a
+                  className="nav-link dropdown-toggle pr-0"
+                  href="/profiles/me"
+                  id="userDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span className="mr-2 d-none d-lg-inline small">
+                    Hi {user?.first_name}!
+                  </span>
+                  <img
+                    className="img-profile rounded-circle"
+                    src={user?.avatar_url || '/img/s4.png'}
+                  />
+                </a>
+                <div
+                  className="dropdown-menu dropdown-menu-right shadow-sm animated--grow-in"
+                  aria-labelledby="userDropdown"
+                >
+                  <a className="dropdown-item" href="/profiles/me">
+                    <i className="fas fa-user-circle fa-sm fa-fw mr-2 ri" />
+                    Profile
+                  </a>
+                  <div
+                    className="dropdown-item"
+                    data-toggle="modal"
+                    data-target="#logoutModal"
+                    onClick={handleLogout}
+                  >
+                    <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 ri" />
+                    Logout
+                  </div>
+                </div>
+              </>
+            ) : (
+              <a className="nav-link dropdown-toggle pr-0" href="/login">
+                <span className="mr-2 d-none d-lg-inline small text-primary">
+                  Login / Sign up <i className="fas fa-sign-in-alt ml-1" />
+                </span>
               </a>
-              <div
-                className="dropdown-item"
-                data-toggle="modal"
-                data-target="#logoutModal"
-                onClick={handleLogout}
-              >
-                <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 ri" />
-                Logout
-              </div>
-            </div>
+            )}
           </li>
         </ul>
       </div>
