@@ -19,25 +19,16 @@ Version: 1.0
   // Osahan Slider
   $('.osahan-slider').show();
   $('.osahan-slider').slick({
+    arrows: false,
     centerMode: true,
-    centerPadding: '300px',
-    slidesToShow: 1,
+    centerPadding: '40px',
+    slidesToShow: 3,
+    autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 1024,
         settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: '40px',
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: '40px',
           slidesToShow: 1,
         },
       },
