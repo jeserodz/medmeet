@@ -23,8 +23,8 @@ Version: 1.0
     centerMode: true,
     centerPadding: '40px',
     slidesToShow: 3,
-    autoplay: true,
-    autoplaySpeed: 2000,
+    // autoplay: true,
+    // autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 1024,

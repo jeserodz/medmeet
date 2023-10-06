@@ -1,7 +1,6 @@
 'use client';
 
 import classNames from 'classnames';
-import styles from './HomeSlider.module.css';
 
 export function HomeSlider() {
   const slides = [
@@ -17,9 +16,11 @@ export function HomeSlider() {
         .map((src, i) => (
           <div
             key={i}
-            className={classNames('osahan-slider-item', styles.slide)}
+            className="osahan-slider-item rounded home-slider"
             style={{ backgroundImage: `url(${src})` }}
-          />
+          >
+            <div className="overlay rounded">Event title</div>
+          </div>
         ))}
     </div>
   );

@@ -10,7 +10,7 @@ interface EventEditModalProps {
   venues: Venue[];
 }
 
-export async function EventEditModal(props: EventEditModalProps) {
+export function EventEditModal(props: EventEditModalProps) {
   function onSubmit() {
     // @ts-ignore
     $('#event-edit-modal').modal('hide');
@@ -21,6 +21,7 @@ export async function EventEditModal(props: EventEditModalProps) {
   }, [props.event]);
 
   function parseEvent(event: EventEditModalProps['event']) {
+    if (!event) return undefined;
     return {
       ...event,
       datetime: convertDateToDatetimeLocal(event.datetime as unknown as Date),
